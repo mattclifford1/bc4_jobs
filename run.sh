@@ -1,9 +1,15 @@
+mkdir outputs    # comment this out if directory already made
 dir="outputs/"   # you will need to make outputs directory using 'mkdir outputs'
-ram="64G"        # change these
+ram="16G"        # change these
 time="0-6:00"    # accordingly   
 job_name="test"
-sbatch -t $time -J job_name -o $dir$job_name'.out' -e $dir$job_name'.err' --mem=$ram submit_job.sh python file_name.py arg1 arg2 etc
-
-# then do as many jobs as you like -- change any environment variables set above as required
-sbatch -t $time -J job_name -o $dir$job_name'.out' -e $dir$job_name'.err' --mem=$ram submit_job.sh python file_name.py arg1 arg2 etc
-sbatch -t $time -J job_name -o $dir$job_name'.out' -e $dir$job_name'.err' --mem=$ram submit_job.sh python file_name.py arg1 arg2 etc
+lr=$0.01"
+sbatch -t $time -J $job_name$lr -o $dir$lr'.out' -e $dir$lr'.err' --mem=$ram submit_job.sh python Project_BC.py $lr
+lr="0.001"
+sbatch -t $time -J $job_name$lr -o $dir$lr'.out' -e $dir$lr'.err' --mem=$ram submit_job.sh python Project_BC.py $lr
+lr="0.0001"
+sbatch -t $time -J $job_name$lr -o $dir$lr'.out' -e $dir$lr'.err' --mem=$ram submit_job.sh python Project_BC.py $lr
+lr="0.00001"
+sbatch -t $time -J $job_name$lr -o $dir$lr'.out' -e $dir$lr'.err' --mem=$ram submit_job.sh python Project_BC.py $lr
+lr="0.000001"
+sbatch -t $time -J $job_name$lr -o $dir$lr'.out' -e $dir$lr'.err' --mem=$ram submit_job.sh python Project_BC.py $lr
