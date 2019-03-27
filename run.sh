@@ -1,7 +1,7 @@
 mkdir outputs    # comment this out if directory already made
 dir="outputs/"   # you will need to make outputs directory using 'mkdir outputs'
 ram="16G"        # change these
-time="0-6:00"    # accordingly   
+time="0-1:00"    # accordingly   
 job_name="test"
 lr=$0.01"
 sbatch -t $time -J $job_name$lr -o $dir$lr'.out' -e $dir$lr'.err' --mem=$ram submit_job.sh python Project_BC.py $lr
